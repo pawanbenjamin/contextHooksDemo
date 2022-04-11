@@ -7,6 +7,7 @@ const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null)
 
   useEffect(() => {
+    // Could Check if there is a token in localStorage
     async function getUser() {
       const newUser = { name: 'Elvis', age: 99, email: 'elvis@evlis.net' }
       setUser(newUser)
