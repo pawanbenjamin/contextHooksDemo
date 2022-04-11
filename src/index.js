@@ -1,6 +1,8 @@
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
+
+import AuthProvider from './components/AuthProvider'
 
 const container = document.getElementById('root')
 
@@ -10,6 +12,8 @@ const root = ReactDOM.createRoot(container)
 // Initial render
 root.render(
   <BrowserRouter>
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </BrowserRouter>
 )
