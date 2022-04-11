@@ -9,11 +9,15 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     // Could Check if there is a token in localStorage
     async function getUser() {
-      const newUser = { name: 'Elvis', age: 99, email: 'elvis@evlis.net' }
-      setUser(newUser)
+      if (localStorage.getItem('token')) {
+        const newUser = { name: 'Elvis', age: 99, email: 'elvis@evlis.net' }
+        setUser(newUser)
+      } else {
+        setUser({})
+      }
     }
     getUser()
-  }, [])
+  }, [token])
 
   return (
     <AuthContext.Provider value={{ user, setUser, token, setToken }}>
